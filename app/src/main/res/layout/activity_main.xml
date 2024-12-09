@@ -22,17 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="8dp"
-        android:paddingHorizontal="16dp"
-        android:text="Найти"
         android:backgroundTint="@color/black"
+        android:paddingHorizontal="16dp"
+        android:rotationX="13"
+        android:text="Найти"
         android:textColor="@android:color/white" />
 
-    <!-- Разделитель -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="8dp"
-        android:background="@android:color/darker_gray" />
 
     <!-- Список найденных фильмов -->
     <androidx.recyclerview.widget.RecyclerView
