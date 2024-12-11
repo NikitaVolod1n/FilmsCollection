@@ -14,8 +14,10 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val searchFragment=SearchFragment()
-        val favoritesFragment=FavoritesFragment()
+        val favoritesMovies = mutableSetOf<Movie>()
+
+        val searchFragment=SearchFragment(favoritesMovies)
+        val favoritesFragment=FavoritesFragment(favoritesMovies)
         val settingsFragment=SettingsFragment()
 
         setCurrentFragment(searchFragment)

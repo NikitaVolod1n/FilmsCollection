@@ -14,11 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filmscollection.databinding.FragmentSearchBinding
 import kotlinx.coroutines.launch
 
-class SearchFragment : Fragment() {
+class SearchFragment(val favorites: MutableSet<Movie>) : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: RecyclerAdapter
-    private val favorites = mutableSetOf<Movie>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +39,6 @@ class SearchFragment : Fragment() {
 
         binding.btnSearch.setOnClickListener {
             hideKeyboard()
-            println(favorites)
             val searchQuery = binding.etSearchQuery.text.toString()
             if (searchQuery.isNotEmpty()) {
                 searchMovies(searchQuery)
@@ -75,9 +73,10 @@ class SearchFragment : Fragment() {
     }
 
     private fun toggleFavorite(movie: Movie, position: Int) {
+        movie.isFavorite = !movie.isFavorite
         if (movie.isFavorite) {
             favorites.add(movie)
-        } else {
+        } else if (!movie.isFavorite) {
             favorites.remove(movie)
         }
         adapter.notifyItemChanged(position)  // Обновляем элемент
