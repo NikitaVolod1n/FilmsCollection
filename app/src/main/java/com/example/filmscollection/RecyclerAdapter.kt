@@ -58,7 +58,7 @@ data class Movie(
     @SerializedName("Title") val title: String,
     @SerializedName("Year")val year: String,
     @SerializedName("Poster")val poster: String,
-    @SerializedName("imdbID") val imdbID: String?,
+    @SerializedName("imdbID") val imdbID: String,
     @SerializedName("Type")val type: String,
     var isFavorite: Boolean
 )

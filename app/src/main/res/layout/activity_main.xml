@@ -1,41 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- Поле ввода для поиска -->
-    <EditText
-        android:id="@+id/etSearchQuery"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите название фильма"
-        android:inputType="text"
-        android:padding="8dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu"/>
 
-    <!-- Кнопка поиска -->
-    <Button
-        android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/black"
-        android:paddingHorizontal="16dp"
-        android:rotationX="13"
-        android:text="Найти"
-        android:textColor="@android:color/white" />
-
-
-    <!-- Список найденных фильмов -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMovies"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:padding="8dp" />
-
-</LinearLayout>
+        android:layout_marginBottom="8dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/navView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/navigator" />
+</androidx.constraintlayout.widget.ConstraintLayout>

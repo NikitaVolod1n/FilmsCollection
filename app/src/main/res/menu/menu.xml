@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search"
+        android:title="Поиск"
+        android:icon="@drawable/search_ico"/>
+    <item
+        android:id="@+id/favorites"
+        android:title="Избранное"
+        android:icon="@drawable/favorite_ico"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="Настройки"
+        android:icon="@drawable/settings_ico"/>
+</menu>
